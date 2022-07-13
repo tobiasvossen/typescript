@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .js,.ts",
     "start": "tsc && node dist/index.js",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,9 @@
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.30.6",
     "eslint": "^8.19.0",
+    "husky": "^8.0.1",
     "jest": "^28.1.2",
+    "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
   },
@@ -39,5 +42,9 @@
     "testMatch": [
       "**/*.test.ts"
     ]
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --fix",
+    "*.{js,ts,md}": "prettier --write"
   }
 }
